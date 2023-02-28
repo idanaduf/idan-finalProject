@@ -9,8 +9,6 @@ const MyOrders = () => {
   const orders = useSelector(selectOrders)
 
   return (
-    // <div>MyOrders</div>
-    // *********************
     <div>
       <h2>My Orders</h2>
       {orders.map((order: Order) => (
@@ -25,7 +23,6 @@ const MyOrders = () => {
                   <p>{product.description}</p>
                   <p>Price: ${product.price}</p>
                   <p>Category: {product.category}</p>
-                  {/* Add any other product details you want to display */}
                 {/*  */}
               </li>
             ))}
@@ -33,7 +30,6 @@ const MyOrders = () => {
         </div>
       ))}
     </div>
-    // ******************
   )
 }
 

@@ -19,9 +19,7 @@ from rest_framework import status, generics
 from rest_framework.pagination import PageNumberPagination
 
 
-# =============================================
-## =========== AUTHENTICATION VIEW ============
-# =============================================
+#### AUTHENTICATION VIEW ####
 
 # logout
 class LogoutAPIView(APIView):
@@ -91,9 +89,7 @@ def register(request):
 class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
 
-# =====================================
-## =========== PROFILE VIEW ===========
-# =====================================
+####  PROFILE VIEW ####
 
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
@@ -193,9 +189,8 @@ class APIViews(APIView):
             return Response(status=status.HTTP_204_NO_CONTENT)
 # //////////// end      image upload / display
 
-# ==================================
-## =========== order view ==========
-# ==================================
+#### order view ####
+
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def order(req):
@@ -238,23 +233,10 @@ def get_orders(req):
     serializer = OrderSerializer(orders, many=True)
     return Response(serializer.data)
 
-# =======================================
-## =========== REVIEW VIEW ==============
-# =======================================
+#### REVIEW VIEW ####
+
 # views.py
 
-# # move import upppp=============================================================================
-# from rest_framework.permissions import IsAuthenticatedOrReadOnly
-# # ==========================================================================================
-# class ReviewListCreateAPIView(generics.ListCreateAPIView):
-#     queryset = Review.objects.all()
-#     serializer_class = ReviewSerializer
-#     permission_classes = [IsAuthenticatedOrReadOnly]
-
-# class ReviewRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = Review.objects.all()
-#     serializer_class = ReviewSerializer
-#     permission_classes = [IsAuthenticatedOrReadOnly]
 
 
 @api_view(['POST'])
@@ -280,6 +262,3 @@ def create_review(req):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-
-    #  all_products = ProductSerializer(Product.objects.all(), many=True).data
-    #     return JsonResponse(all_products, safe=False)

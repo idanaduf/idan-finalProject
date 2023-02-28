@@ -27,7 +27,6 @@ const Login = () => {
   }
 
   return (
-    // will show login form only if currentUser is empty
     <div>
       <div style={{ padding: "50px", textAlign: "center" }}>
         {/* ################################### register form ################################### */}

@@ -18,7 +18,6 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getAllProductsAsync())
-    // dispatch(getReviewsAsync())
 
   }, []);
 

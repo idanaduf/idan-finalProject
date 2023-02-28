@@ -31,21 +31,12 @@ export const removeProdAsync = createAsyncThunk(
   }
 );
 
-// export const getAllProductsAsync = createAsyncThunk(
-//   'product/getAllProducts',
-//   async () => {
-//     console.log('inasync')
-//     const response = await getAllProducts();
-//     return response.data;
-//   }
-// );
 
 export const productSlice = createSlice({
   name: 'product',
   initialState,
   reducers: {
-    // todo
-    // getProductByCategory: (state, action) => {    },
+ 
     
 
 
@@ -59,13 +50,10 @@ export const productSlice = createSlice({
       .addCase(removeProdAsync.fulfilled, (state, action) => {
         console.log(action.payload)
       })
-      // .addCase(getAllProductsAsync.fulfilled, (state, action) => {
-      //   console.log(action.payload)
-      // })
+    
   },
 });
 
 export const { } = productSlice.actions;
-// export const selectProducts = (state: RootState) => state.product.products;
 
 export default productSlice.reducer;

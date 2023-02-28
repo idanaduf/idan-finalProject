@@ -11,12 +11,7 @@ export function addProdFetch(creds:any) {
     );
   }
   
-  // export function getAllProducts() {
-  //   return new Promise<{ data: any }>((resolve) =>
-  //   axios.get(SERVER + "myProducts")
-  //       .then((res) => resolve({ data: res.data }))
-  //   );
-  // }
+
   export function getAllProducts(allProducts = false) {
     const url = allProducts ? `${SERVER}myProducts?all=true` : `${SERVER}myProducts`;
     return new Promise<{ data: any }>((resolve) =>

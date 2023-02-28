@@ -16,9 +16,7 @@ class OrderItemSerializer(serializers.ModelSerializer):
         model = OrderItem
         fields = '__all__'
 
-    # def create(self, validated_data):
-    #     order = self.context['order']
-    #     return Orders.objects.create(**validated_data,order=order)
+  
 
 class OrderSerializer(serializers.ModelSerializer):
     orderItems = serializers.SerializerMethodField(read_only=True)
@@ -81,6 +79,3 @@ class ReviewSerializer(serializers.ModelSerializer):
         user = self.context['user']
         return Review.objects.create(**validated_data, user=user)
 
-    # def create(self, validated_data):
-    #     user = self.context['user']
-    #     return Review.objects.create(user=user,  **validated_data)

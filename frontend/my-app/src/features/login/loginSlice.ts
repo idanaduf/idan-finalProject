@@ -9,13 +9,11 @@ import { toast } from 'react-toastify';
 export interface LoginSlice {
   userLogged: string
   isAdmin: boolean
-  // userID: string
 }
 
 const initialState: LoginSlice = {
   userLogged: "",
   isAdmin: false,
-  // userID: ""
 
 };
 
@@ -58,7 +56,6 @@ export const loginSlice = createSlice({
   initialState,
   reducers: {
     load_user: (state, action) => {
-      // used to load the user if access token still has more than an hour till it will expire
       state.userLogged = action.payload.username
       { action.payload.username == "admin" ? state.isAdmin = true : state.isAdmin = false }
 
@@ -107,7 +104,6 @@ export const loginSlice = createSlice({
         localStorage.setItem('axx', action.payload.access)
         const tmp: any = jwt_decode(action.payload.access)
         state.userLogged = tmp.username
-        // state.userID = tmp.user_id
 
         { tmp.username == "admin" ? state.isAdmin = true : state.isAdmin = false }
       })
@@ -122,6 +118,5 @@ export const loginSlice = createSlice({
 
 export const { load_user } = loginSlice.actions;
 export const selectUser = (state: RootState) => state.login.userLogged;
-// export const selectUserID = (state: RootState) => state.login.userID;
 
 export default loginSlice.reducer;

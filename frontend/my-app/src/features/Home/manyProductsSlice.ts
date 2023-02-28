@@ -33,10 +33,7 @@ export const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    // todo
-    // getProductByCategory: (state, action) => {    },
-
-
+  
 
   },
 

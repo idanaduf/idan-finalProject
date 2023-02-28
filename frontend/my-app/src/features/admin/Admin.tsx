@@ -5,8 +5,7 @@ import { useAppDispatch } from '../../app/hooks'
 import { selectUser } from '../login/loginSlice'
 import { addProdAsync } from './productSlice'
 
-// component for adding products
-// TODO - add more features so admin can control site
+
 const Admin = () => {
     const currentUser: string = useSelector(selectUser)
     const navigate = useNavigate()

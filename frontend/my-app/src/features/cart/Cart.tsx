@@ -56,8 +56,6 @@ const Cart = () => {
         <h3>Summary</h3>
         <h5>Total {total}$</h5>
 
-        {/* <Link to={"/checkout"} >checkout</Link> */}
-
         {!flag ? <div onClick={handlecheckout}>checkout test</div> : <PayPalScriptProvider options={{ "client-id": "Acv35MxVCkOUiuPZvxSGnEhK7-RGjVWQvxtxbhDpALeyCVBoa5o3gnRSYvb9aiYCdZaz9VjPkjQOcGef" }}>
           <PayPalButtons
             createOrder={(data, actions) => {
@@ -79,9 +77,6 @@ const Cart = () => {
             }}
           />        </PayPalScriptProvider>}
        {flag && <div onClick={() => setflag(!flag)}>make more changes!</div>}
-
-
-        {/* <div onClick={() => dispatch(orderAsync(cart))}>send order</div> */}
 
 
       </div>

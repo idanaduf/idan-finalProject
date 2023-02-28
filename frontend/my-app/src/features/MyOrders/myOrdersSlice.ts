@@ -23,8 +23,7 @@ export const myOrdersSlice = createSlice({
   name: 'myOrders',
   initialState,
   reducers: {
-    // todo
-    // getProductByCategory: (state, action) => {    },
+  
   },
 
   extraReducers: (builder) => {
@@ -33,8 +32,6 @@ export const myOrdersSlice = createSlice({
         state.orders = [...action.payload]
         state.orders.forEach((order: any) => {
           order.orderItems.forEach((product: any) => {
-            // add to productsOrderd all the product id's that user orderd - so we can give 
-            // permission to user to make a review on a item he orderd
               { !state.productsOrderd.includes(product.product) && state.productsOrderd.push(product.product) }
           });
         });
@@ -43,7 +40,6 @@ export const myOrdersSlice = createSlice({
 });
 
 export const { } = myOrdersSlice.actions;
-// export const selectProducts = (state: RootState) => state.productz.products;
 export const selectOrders = (state: RootState) => state.myOrders.orders;
 export const selectProdctsOrderd = (state: RootState) => state.myOrders.productsOrderd;
 
