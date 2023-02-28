@@ -1,29 +1,24 @@
-FROM python:3.10
+# Use an official Python runtime as a parent image
+FROM python:3.9
 
+# Set environment variables
 ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE 1
 
-WORKDIR /idanpro/backend/
+# Set the working directory to /code
+WORKDIR /code
 
-COPY . .
+# Copy the requirements file into the container at /code
+COPY requirements.txt /code/
 
-RUN pip install virtualenv
+# Install any needed packages specified in requirements.txt
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
-RUN virtualenv myenv
+# Copy the current directory contents into the container at /code
+COPY . /code/
 
-RUN . env/bin/activate
-
-RUN pip install --no-cache-dir -r requirements.txt
-
-RUN pip install python-decouple
-
-ENV DJANGO_SETTINGS_MODULE=myproj.settings
-
-ENV SECRET_KEY = "django-insecure-9t1pstl0+b$+*zr*2*typ5^bhi208(ewp8z-+)h1lr+aqe+9e0"
-
-RUN python manage.py makemigrations
-
-RUN python manage.py migrate
-
+# Expose port 8000 for the Django app
 EXPOSE 8000
 
+# Run the command to start the Django development server
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
